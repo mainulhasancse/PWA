@@ -55,6 +55,29 @@ function displayConfirmNotification() {
 	}
 }
 
+function configurePushSub() {
+	if(!('serviceWorker' in navigator)) {
+		return;
+	}
+
+	navigator.serviceWorker.ready
+	 .then(function(swreg) {
+	 	reg = swreg;
+	 	return swreg.pushManager.getSubscription();
+	 })
+	 .then(function(sub) {
+	 	if(sub === null) {
+	 		// Create a new subscription
+	 		reg.pushManager.subscribe({
+	 			userVisibleOnly: true
+	 		});
+	 	} else {
+	 		// We have a subscription
+	 	}
+
+	 });
+}
+
 // Ask permission to user to get the notification 
 function askForNotificationPermission() {
   Notification.requestPermission(function(result) {
@@ -62,12 +85,13 @@ function askForNotificationPermission() {
     if (result !== 'granted') {
       console.log('No notification permission granted!');
     } else {
-    	displayConfirmNotification();
+    	configurePushSub();
+    	// displayConfirmNotification();
     }
   });
 }
 
-if ('Notification' in window) {
+if ('Notification' in window && 'serviceWorker' in navigator) {
   for (var i = 0; i < enableNotificationsButtons.length; i++) {
     enableNotificationsButtons[i].style.display = 'inline-block';
     enableNotificationsButtons[i].addEventListener('click', askForNotificationPermission);

@@ -276,3 +276,29 @@ self.addEventListener('notificationclose', function(event) {
 });
 
 
+
+// Fetch from dynamic cache and store in dynamic cache if not available
+
+// self.addEventListener('fetch', function(event) {
+//   event.respondWith(
+//     caches.open(CACHE_DYNAMIC_NAME).then(function(cache) {
+//       return cache.match(event.request).then(function (response) {
+//         return response || fetch(event.request).then(function(response) {
+//           if ( event.request.url.match( '^.*(\/collect\/).*$' ) ) {
+//             return false;
+//         }
+//          // OR
+    
+//         if ( event.request.url.indexOf( '/gtag/' ) !== -1 ) {
+//             return false;
+//         }
+//         //    *** rest of your service worker code ***
+//           cache.put(event.request, response.clone());
+//           return response;
+//         });
+//       });
+//     })
+//   );
+// });
+
+
