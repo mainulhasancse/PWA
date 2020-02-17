@@ -59,7 +59,7 @@ function configurePushSub() {
 	if(!('serviceWorker' in navigator)) {
 		return;
 	}
-
+	var reg;
 	navigator.serviceWorker.ready
 	 .then(function(swreg) {
 	 	reg = swreg;
@@ -85,8 +85,8 @@ function askForNotificationPermission() {
     if (result !== 'granted') {
       console.log('No notification permission granted!');
     } else {
-    	configurePushSub();
-    	// displayConfirmNotification();
+    	// configurePushSub();
+    	displayConfirmNotification();
     }
   });
 }
@@ -97,6 +97,13 @@ if ('Notification' in window && 'serviceWorker' in navigator) {
     enableNotificationsButtons[i].addEventListener('click', askForNotificationPermission);
   }
 }
+
+// if ('Notification' in window) {
+//   for (var i = 0; i < enableNotificationsButtons.length; i++) {
+//     enableNotificationsButtons[i].style.display = 'inline-block';
+//     enableNotificationsButtons[i].addEventListener('click', askForNotificationPermission);
+//   }
+// }
 
 
 // Unregister Service Worker
