@@ -1,0 +1,41 @@
+{
+  "name": "Custom App",
+  "short_name": "Custom App",
+  "lang": "en-US",
+  "start_url": "/",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#0a275e",
+  "background_color": "#0a275e",
+  "icons": [
+    {
+      "src": "/images/touch/icon-48x48.png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "/images/touch/icon-96x96.png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "/images/touch/icon-144x144.png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "/images/touch/icon-192x192.png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/touch/icon-256x256.png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "/images/touch/icon-384x384.png",
+      "sizes": "384x384"
+    },
+    {
+      "src": "/images/touch/icon-512x512.png",
+      "sizes": "512x512"
+    }
+  ]
+}
