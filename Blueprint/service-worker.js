@@ -62,7 +62,10 @@ self.addEventListener('fetch', function(event) {
                                 return response;
                             }
                         }
-
+                        
+                         if(event.request.method === "POST"){
+                            return response;
+                        }
 
                         // IMPORTANT: Clone the response. A response is a stream
                         // and because we want the browser to consume the response
