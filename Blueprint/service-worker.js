@@ -1,19 +1,18 @@
 var CACHE_STATIC_NAME = 'static-v2';
 var CACHE_DYNAMIC_NAME = 'dynamic-v2';
+var INCLUDES_PWA_VERSION = '?v=2.1';
 var EXCLUDE_URL_CACHING = [];
 
 var STATIC_FILES = [];
 
 self. addEventListener('install', function(event) {
     console.log('[Service Worker] Installing Service Worker ....', event);
-    var slider_images = new URL(location).searchParams.get('slider_images').split(',');
     self.skipWaiting();
     event.waitUntil(
         caches.open(CACHE_STATIC_NAME)
             .then(function(cache) {
                 console.log('[Service Worker] Precaching App Shell....');
                 cache.addAll(STATIC_FILES);
-                cache.addAll(slider_images);
             })
     );
 });
@@ -63,7 +62,7 @@ self.addEventListener('fetch', function(event) {
                             }
                         }
                         
-                         if(event.request.method === "POST"){
+                         if(event.request.method === 'POST' || event.request.method === 'PUT' || event.request.method === 'PATCH' || event.request.method === 'DELETE'){
                             return response;
                         }
 
