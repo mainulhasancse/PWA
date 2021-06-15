@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    var PWA_CACHE_VERSION = 10
+    var PWA_CACHE_VERSION = 11
 </script>
 <?php
 add_action('wp_footer', 'install_service_worker');
