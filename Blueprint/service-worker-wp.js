@@ -6,7 +6,7 @@ var STATIC_FILES = [
 ];
 
 self.addEventListener('install', function (event) {
-    self.skipWaiting();
+    // self.skipWaiting();
     console.log('[Service Worker] Installing Service Worker ...', event);
     event.waitUntil(
         caches.open(CACHE_STATIC_NAME)
